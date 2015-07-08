@@ -102,6 +102,7 @@ $(ELF_FNAME): $(OBJECTS)
 	#arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -g2 -nostartfiles -Wl,-Map=$(MAP_FNAME) -O0 -Wl,--gc-sections -Wl,-T$(LINKER_SCRIPT) -g -o $(ELF_FNAME) $(OBJECTS)
 	$(CC) $(LDFLAGS) -o $(ELF_FNAME) $(OBJECTS)
 	echo "linked!"
+	arm-none-eabi-size $(ELF_FNAME)
 
 # compilation rule
 %.o: %.c
